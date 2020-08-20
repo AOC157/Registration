@@ -11,6 +11,16 @@ class SignUp:
         self.password = password
         print(username + " " + password + " up")
 
+    def save(self,username,password):
+        usernameFile = open("username.txt","a")
+        passwordFile = open("password.txt","a")
+        
+        usernameFile.write(username + " ")
+        usernameFile.close
+
+        passwordFile.write(password + " ")
+        passwordFile.close    
+
         
 mode = input("enter mode: sign ")
 username = input("Please enter your username")
@@ -21,4 +31,5 @@ if mode == "in":
     
 elif mode == "up":
     user = SignUp(username,password)
+    user.save(username,password)
 
