@@ -15,10 +15,10 @@ class SignUp:
         usernameFile = open("username.txt","a")
         passwordFile = open("password.txt","a")
         
-        usernameFile.write(username + " ")
+        usernameFile.write(username + '\n')
         usernameFile.close
 
-        passwordFile.write(password + " ")
+        passwordFile.write(password + '\n')
         passwordFile.close    
 
         
