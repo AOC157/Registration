@@ -1,11 +1,11 @@
 import tkinter
 from tkinter import *
+import tkinter.messagebox as msg
 
 class SignIn:
     def __init__(self,username,password):
         self.username = username
         self.password = password
-        print(username + " " + password + " in!")
 
     def load(self):
         userCounter = 0
@@ -40,7 +40,6 @@ class SignUp:
     def __init__(self,username,password):
         self.username = username
         self.password = password
-        print(username + " " + password + " up!")
 
     def save(self,username,password):
         usernameFile = open("username.txt","a")
@@ -54,9 +53,8 @@ class SignUp:
 
 top = tkinter.Tk()
 top.geometry("300x200")
-top.bg = "yellow"
 
-var = IntVar()
+var = IntVar()    
 R1 = Radiobutton(top, text="Sign in", variable=var, value=1,font = 30)
 R1.pack()
 R1.place(x = 40 , y = 20)
@@ -68,35 +66,48 @@ R2.place(x = 160 , y = 20)
 L1 = Label(top, text="User Name")
 L1.pack()
 L1.place(x = 20,y = 70)
+
 E1 = Entry(top, bd =5)
 E1.pack()
 E1.place(x = 120,y = 70)
 
-L1 = Label(top, text="Pass Word")
-L1.pack()
-L1.place(x = 20,y = 100)
-E1 = Entry(top, bd = 5 , show = "*")
-E1.pack()
-E1.place(x = 120,y = 100)
+L2 = Label(top, text="Pass Word")
+L2.pack()
+L2.place(x = 20,y = 100)
+
+E2 = Entry(top, bd = 5 , show = "*")
+E2.pack()
+E2.place(x = 120,y = 100)
+
+
+def check():
+    username = E1.get()
+    password = E2.get()
+    if(var.get() == 1):
+        user = SignIn(username,password)
+        if user.load():
+            msg.showinfo("Sign in","you succesfully signed in \"" + username + "\"")
+        else:
+            msg.showinfo("Sign in","your password may be incorrect or your username doesn't exist")
+
+    elif (var.get() == 2):
+        user = SignUp(username,password)
+        user.save(username,password)
+        msg.showinfo("Sign up","\"" + username + "\"! you succesfully signed up")
+
+    else:
+         msg.showinfo( "warning", "you don't choose any mode")
+
+
 
 B = tkinter.Button(top,text ="Import",
+                   command = check,
                    activebackground = "Green",
                    activeforeground = "blue",
                    bd = 5,
-                   font = 30
-                   )
+                   font = 30)
 B.pack()
 B.place(x = 90, y = 140,width = 100)
-if mode == "in":
-    user = SignIn(username,password)
-    if user.load():
-        print("you succesfully signed in \"" + username + "\"")
-    else:
-        print("your password may be incorrect or your username doesn't exist")
-    
-elif mode == "up":
-    user = SignUp(username,password)
-    user.save(username,password)
-    print("\"" + username + "\"! you succesfully signed up")
+
 
 top.mainloop()
