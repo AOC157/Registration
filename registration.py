@@ -98,8 +98,6 @@ def check():
     else:
          msg.showinfo( "warning", "you don't choose any mode")
 
-
-
 B = tkinter.Button(top,text ="Import",
                    command = check,
                    activebackground = "Green",
