@@ -53,6 +53,8 @@ class SignUp:
 
 top = tkinter.Tk()
 top.geometry("300x200")
+top.iconbitmap("sun_icon.ico")
+top.title("sign in/up")
 
 var = IntVar()    
 R1 = Radiobutton(top, text="Sign in", variable=var, value=1,font = 30)
