@@ -53,7 +53,7 @@ class SignUp:
 
 top = tkinter.Tk()
 top.geometry("300x200")
-top.iconbitmap("sun_icon.ico")
+top.iconbitmap("icon.ico")
 top.title("sign in/up")
 
 var = IntVar()    
