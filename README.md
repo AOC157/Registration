@@ -1,1 +1,1 @@
-this is a simple registration system in python language with gui
+this code is a simple registration system in python language with gui
