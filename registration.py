@@ -54,9 +54,11 @@ class SignUp:
         passwordFile.close    
 
 top = tkinter.Tk()
+top.configure(bg = "yellow")
 top.geometry("300x200")
 top.iconbitmap("icon.ico")
 top.title("sign in/up")
+top.resizable(False, False)
 
 radioFont = font.Font(family="Times New Roman",size = 15)
 labelFont = font.Font(family="Arial",size = 11)
@@ -64,33 +66,35 @@ buttonFont = font.Font(family="Times New Roman",size = 13)
 
 
 var = IntVar()    
-R1 = Radiobutton(top, text="Sign in", variable=var, value=1)
+R1 = Radiobutton(top, text="Sign in",width = 11,height = 2, variable=var, value=1,
+            bg = "gold",activebackground = "maroon",activeforeground = "white")
 R1['font'] = radioFont
 R1.pack()
-R1.place(x = 40 , y = 20)
+R1.place(x = 0 , y = 0)
 
-R2 = Radiobutton(top, text="Sign up", variable=var, value=2)
+R2 = Radiobutton(top, text="Sign up",height = 2,width = 11, variable=var, value=2,
+            bg = "goldenrod",activebackground = "blue",activeforeground = "white")
 R2['font'] = radioFont
 R2.pack()
-R2.place(x = 160 , y = 20)
+R2.place(x = 150 , y = 0)
 
-L1 = Label(top, text="Username")
+L1 = Label(top, text="Username",bg = "yellow")
 L1['font'] = labelFont
 L1.pack()
-L1.place(x = 25,y = 70)
+L1.place(x = 25,y = 75)
 
 E1 = Entry(top, bd =5)
 E1.pack()
-E1.place(x = 125,y = 70)
+E1.place(x = 125,y = 75)
 
-L2 = Label(top, text="Password")
+L2 = Label(top, text="Password",bg = "yellow")
 L2['font'] = labelFont
 L2.pack()
-L2.place(x = 25,y = 100)
+L2.place(x = 25,y = 105)
 
 E2 = Entry(top, bd = 5 , show = "*")
 E2.pack()
-E2.place(x = 125,y = 100)
+E2.place(x = 125,y = 105)
 
 
 def check():
@@ -113,13 +117,12 @@ def check():
 
 B = tkinter.Button(top,text ="Import",
                    command = check,
-                   activebackground = "Green",
-                   activeforeground = "blue",
-                   bd = 5,
-                   font = 30)
+                   activebackground = "springgreen4",
+                   activeforeground = "gray99",
+                   bd = 5, bg = "deep sky blue")
 B['font'] = buttonFont
 B.pack()
-B.place(x = 100, y = 140,width = 100)
+B.place(x = 100, y = 145,width = 100)
 
 
 top.mainloop()
