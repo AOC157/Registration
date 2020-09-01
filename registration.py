@@ -1,6 +1,8 @@
 import tkinter
 from tkinter import *
 import tkinter.messagebox as msg
+import tkinter.font as font
+
 
 class SignIn:
     def __init__(self,username,password):
@@ -56,30 +58,39 @@ top.geometry("300x200")
 top.iconbitmap("icon.ico")
 top.title("sign in/up")
 
+radioFont = font.Font(family="Times New Roman",size = 15)
+labelFont = font.Font(family="Arial",size = 11)
+buttonFont = font.Font(family="Times New Roman",size = 13)
+
+
 var = IntVar()    
-R1 = Radiobutton(top, text="Sign in", variable=var, value=1,font = 30)
+R1 = Radiobutton(top, text="Sign in", variable=var, value=1)
+R1['font'] = radioFont
 R1.pack()
 R1.place(x = 40 , y = 20)
 
-R2 = Radiobutton(top, text="Sign up", variable=var, value=2,font = 30)
+R2 = Radiobutton(top, text="Sign up", variable=var, value=2)
+R2['font'] = radioFont
 R2.pack()
 R2.place(x = 160 , y = 20)
 
-L1 = Label(top, text="User Name")
+L1 = Label(top, text="Username")
+L1['font'] = labelFont
 L1.pack()
-L1.place(x = 20,y = 70)
+L1.place(x = 25,y = 70)
 
 E1 = Entry(top, bd =5)
 E1.pack()
-E1.place(x = 120,y = 70)
+E1.place(x = 125,y = 70)
 
-L2 = Label(top, text="Pass Word")
+L2 = Label(top, text="Password")
+L2['font'] = labelFont
 L2.pack()
-L2.place(x = 20,y = 100)
+L2.place(x = 25,y = 100)
 
 E2 = Entry(top, bd = 5 , show = "*")
 E2.pack()
-E2.place(x = 120,y = 100)
+E2.place(x = 125,y = 100)
 
 
 def check():
@@ -106,8 +117,9 @@ B = tkinter.Button(top,text ="Import",
                    activeforeground = "blue",
                    bd = 5,
                    font = 30)
+B['font'] = buttonFont
 B.pack()
-B.place(x = 90, y = 140,width = 100)
+B.place(x = 100, y = 140,width = 100)
 
 
 top.mainloop()
