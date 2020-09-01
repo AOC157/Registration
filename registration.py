@@ -41,14 +41,14 @@ class SignUp:
         self.username = username
         self.password = password
 
-    def save(self,username,password):
+    def save(self):
         usernameFile = open("username.txt","a")
         passwordFile = open("password.txt","a")
         
-        usernameFile.write(username + '\n')
+        usernameFile.write(self.username + '\n')
         usernameFile.close
 
-        passwordFile.write(password + '\n')
+        passwordFile.write(self.password + '\n')
         passwordFile.close    
 
 top = tkinter.Tk()
@@ -94,7 +94,7 @@ def check():
 
     elif (var.get() == 2):
         user = SignUp(username,password)
-        user.save(username,password)
+        user.save()
         msg.showinfo("Sign up","\"" + username + "\"! you succesfully signed up")
 
     else:
